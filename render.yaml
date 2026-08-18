@@ -23,7 +23,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: BACKEND_CORS_ORIGINS
-        value: https://projecthub-frontend.onrender.com
+        value: https://projecthub-frontend-6eer.onrender.com
 
   # ── React Frontend ───────────────────────────────────────────────────────────
   - type: web
