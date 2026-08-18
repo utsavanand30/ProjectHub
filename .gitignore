@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+build/
+.eggs/
+*.so
+.venv/
+venv/
+env/
+.env
+*.env
+
+# Never ignore the example env file
+!.env.example
+
+# Node
+node_modules/
+dist/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Alembic
+backend/alembic/versions/*.pyc
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Secrets — never commit
+*.pem
+*.key
+*.p12
+secrets/
+
+# Local symlink — not needed on Render
+backend/.env
