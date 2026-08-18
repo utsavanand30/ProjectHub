@@ -35,7 +35,7 @@ services:
     startCommand: npx serve -s dist -l $PORT
     envVars:
       - key: VITE_API_URL
-        value: https://projecthub-backend.onrender.com/api/v1
+        value: https://projecthub-backend-pbrc.onrender.com/api/v1
       - key: NODE_VERSION
         value: 20
 
