@@ -32,7 +32,7 @@ services:
     rootDir: frontend
     plan: free
     buildCommand: npm install && npm run build
-    startCommand: npx serve -s dist -l 10000
+    startCommand: npx serve -s dist -l $PORT
     envVars:
       - key: VITE_API_URL
         value: https://projecthub-backend.onrender.com/api/v1
