@@ -22,13 +22,32 @@ def _verify_token(x_setup_token: str = Header(...)):
 
 @router.post("/seed")
 def seed_database(
+    force: bool = False,
     db: Session = Depends(get_db),
     _: None = Depends(_verify_token),
 ):
-    # If admin already exists, refuse to re-seed
+    # If admin already exists, refuse to re-seed unless forced
     existing = db.query(User).first()
-    if existing:
-        return {"status": "already_seeded", "message": "Database already has users — skipping."}
+    if existing and not force:
+        return {"status": "already_seeded", "message": "Database already has users — skipping. Use ?force=true to wipe and re-seed."}
+
+    # Wipe existing data if force
+    if existing and force:
+        from app.models.issue import Issue
+        from app.models.risk import Risk
+        from app.models.activity import Activity
+        from app.models.project_update import ProjectUpdate
+        from app.models.project import Project, ProjectMember
+        from app.models.audit_log import AuditLog
+        db.query(AuditLog).delete()
+        db.query(Issue).delete()
+        db.query(Risk).delete()
+        db.query(Activity).delete()
+        db.query(ProjectUpdate).delete()
+        db.query(ProjectMember).delete()
+        db.query(Project).delete()
+        db.query(User).delete()
+        db.commit()
 
     # Run seed inline
     import uuid
