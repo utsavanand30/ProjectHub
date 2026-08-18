@@ -22,6 +22,8 @@ services:
         value: 7
       - key: ENVIRONMENT
         value: production
+      - key: SETUP_SECRET_TOKEN
+        generateValue: true
       - key: BACKEND_CORS_ORIGINS
         value: https://projecthub-frontend-6eer.onrender.com
 

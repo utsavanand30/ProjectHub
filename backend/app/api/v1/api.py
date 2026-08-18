@@ -10,6 +10,7 @@ from app.api.v1.routers import (
     issues,
     dashboard,
     audit,
+    setup,
 )
 
 api_router = APIRouter()
@@ -23,3 +24,4 @@ api_router.include_router(risks.router)
 api_router.include_router(issues.router)
 api_router.include_router(dashboard.router)
 api_router.include_router(audit.router)
+api_router.include_router(setup.router)
